@@ -2,16 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LikesContextProvider } from './context/LikesContext';
-
 import './index.css';
-
 import App from './App';
 import Home from './pages/home';
 import Blog from './pages/blog';
 import User from './pages/user';
 import NotFound from './pages/not-found';
 import UserDetails from './components/user-details';
-import { LikesContextProvider } from './context/LikesContext';
 
 import reportWebVitals from './reportWebVitals';
 
