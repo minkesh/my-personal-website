@@ -21,12 +21,13 @@ const UserDetails = () => {
     };
 
     return (
-        <>
+        <div className='pt-5 bg-light p-5'>
+          <h3>User Details</h3>
           <div>Username: {getUserName()}</div>
-          <button type="primary" className="btn btn-primary" onClick={incrementLikesCount}>
+          <button type="primary" className="mt-3 btn btn-primary" onClick={incrementLikesCount}>
             <BsHeart className='me-2' /> Like
           </button>
-        </>
+        </div>
     );
 };
 
