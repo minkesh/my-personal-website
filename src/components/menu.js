@@ -5,9 +5,7 @@ import { BsHeart } from 'react-icons/bs';
 import LikesContext from '../context/LikesContext';
 
 const Menu = () => {
-    const likesContextData = useContext(LikesContext);
-    const { likesCount } = likesContextData;
-    
+    const contextData = useContext(LikesContext);
     return (
         <div className='mb-5'>
             <Navbar bg="light" expand="lg">
@@ -22,7 +20,8 @@ const Menu = () => {
                         </Nav>
                     </Navbar.Collapse>
                     <Navbar.Text>
-                        <BsHeart /> {likesCount}
+                        {/* todo: Add count variable */}
+                        <BsHeart /> {contextData.likeCount}
                     </Navbar.Text>
                 </Container>
             </Navbar>

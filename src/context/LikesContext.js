@@ -1,26 +1,27 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const LikesContext = createContext({
-    likesCount: 0,
-    incrementLikesCount: () => {}
+    likeCount: 0,
+    incrementLike: () => {}
 });
 
-const LikesContextProvider = ({ children }) => {
-    const [likesCount, setLikesCount] = useState(0);
+const LikesContextProvider = (props) => {
+    const { children } = props;
+    const [likeCount, setLikeCount] = useState(0);
 
-    const incrementLikesCount = () => setLikesCount((likes) => likes + 1);
+    const incrementLike = () => {
+        setLikeCount((count) => count + 1);
+    }
 
     return (
-        <LikesContext.Provider
-            value={{
-                likesCount,
-                incrementLikesCount
-            }}
-        >
-            {children}
-        </LikesContext.Provider >
+        <LikesContext.Provider value={{
+            likeCount,
+            incrementLike
+        }}>
+            { children }
+        </LikesContext.Provider>
     )
-}
+};
 
 export default LikesContext;
 export { LikesContextProvider };

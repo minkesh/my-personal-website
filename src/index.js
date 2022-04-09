@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LikesContextProvider } from './context/LikesContext';
+
 import './index.css';
+
 import App from './App';
 import Home from './pages/home';
 import Blog from './pages/blog';
