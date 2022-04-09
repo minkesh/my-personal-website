@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LikesContextProvider } from './context/LikesContext';
+
 import './index.css';
+
 import App from './App';
 import Home from './pages/home';
 import Blog from './pages/blog';
@@ -13,26 +16,28 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/my-personal-website" element={<App />}>
-          <Route path="blog" element={<Blog />} />
-          <Route path="user" element={<User />}>
-            <Route
-              index
-              element={
-                <div>
-                  This is index path of user route
-                </div>
-              }
-            />
-            <Route path=":userId" element={<UserDetails />} />
+    <LikesContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/my-personal-website" element={<App />}>
+            <Route path="blog" element={<Blog />} />
+            <Route path="user" element={<User />}>
+              <Route
+                index
+                element={
+                  <div>
+                    This is index path of user route
+                  </div>
+                }
+              />
+              <Route path=":userId" element={<UserDetails />} />
+            </Route>
+            <Route path="home" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="home" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </LikesContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

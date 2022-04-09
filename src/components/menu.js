@@ -1,7 +1,11 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { BsHeart } from 'react-icons/bs';
+import { useContext } from 'react';
+import LikesContext from '../context/LikesContext';
 
 const Menu = () => {
+    const contextData = useContext(LikesContext);
     return (
         <div className='mb-5'>
             <Navbar bg="light" expand="lg">
@@ -15,6 +19,10 @@ const Menu = () => {
                             <Nav.Link as={Link} to="/my-personal-website/user">User</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
+                    <Navbar.Text>
+                        {/* todo: Add count variable */}
+                        <BsHeart /> {contextData.likeCount}
+                    </Navbar.Text>
                 </Container>
             </Navbar>
         </div>
